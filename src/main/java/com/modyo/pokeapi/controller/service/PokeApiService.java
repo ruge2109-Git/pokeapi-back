@@ -5,10 +5,13 @@
  */
 package com.modyo.pokeapi.controller.service;
 
+import com.modyo.pokeapi.model.response.ResponseApi;
+
+
 /**
  *
  * @author ruge2
  */
 public interface PokeApiService {
-    
+    public ResponseApi apiPokeApi(int limit, int offset);
 }
