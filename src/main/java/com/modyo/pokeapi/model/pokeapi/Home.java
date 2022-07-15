@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.modyo.pokeapi.model.response;
+package com.modyo.pokeapi.model.pokeapi;
 
-import java.util.List;
 import lombok.Data;
 
 /**
@@ -13,10 +12,9 @@ import lombok.Data;
  * @author ruge2
  */
 @Data
-public class ResponseApi<T> {
-
-    private boolean bRta;
-    private String sMsg;
-    private List<T> data;
-
+public class Home {
+    public String front_default;
+    public Object front_female;
+    public String front_shiny;
+    public Object front_shiny_female;
 }
