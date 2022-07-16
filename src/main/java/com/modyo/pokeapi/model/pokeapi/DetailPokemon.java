@@ -5,7 +5,7 @@
  */
 package com.modyo.pokeapi.model.pokeapi;
 
-import java.util.ArrayList;
+import java.util.List;
 import lombok.Data;
 
 /**
@@ -14,22 +14,22 @@ import lombok.Data;
  */
 @Data
 public class DetailPokemon {
-    public ArrayList<Ability> abilities;
+    public List<Ability> abilities;
     public int base_experience;
-    public ArrayList<DataInfo> forms;
-    public ArrayList<GameIndex> game_indices;
+    public List<DataInfo> forms;
+    public List<GameIndex> game_indices;
     public int height;
-    public ArrayList<HeldItem> held_items;
+    public List<HeldItem> held_items;
     public int id;
     public boolean is_default;
     public String location_area_encounters;
-    public ArrayList<Move> moves;
+    public List<Move> moves;
     public String name;
     public int order;
-    public ArrayList<Object> past_types;
+    public List<Object> past_types;
     public DataInfo species;
     public Sprites sprites;
-    public ArrayList<Stat> stats;
-    public ArrayList<Type> types;
+    public List<Stat> stats;
+    public List<Type> types;
     public int weight;
 }

@@ -30,4 +30,9 @@ public class PokeApiController {
     public ResponseApi apiPokeApi(@RequestParam(value = "limit") int limit, @RequestParam(value = "offset") int offset) {
         return this.apiService.apiPokeApi(limit, offset);
     }
+
+    @GetMapping("getDetailPokemon")
+    public ResponseApi getDetailPokemon(@RequestParam(value = "name") String name) {
+        return this.apiService.apiDetailPokemon(name);
+    }
 }

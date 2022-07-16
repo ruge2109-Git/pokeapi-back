@@ -18,5 +18,6 @@ public class ResponseApi<T> {
     private boolean bRta;
     private String sMsg;
     private List<T> data;
+    private int cantData;
 
 }

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.modyo.pokeapi.model.pokeapi;
+package com.modyo.pokeapi.model.response;
 
+import java.util.List;
 import lombok.Data;
 
 /**
@@ -12,7 +13,10 @@ import lombok.Data;
  * @author ruge2
  */
 @Data
-public class Type {
-    public int slot;
-    public DataInfo type;
+public class PokemonInfo {
+    private String name;
+    private List<String> type;
+    private int weight;
+    private String urlImage;
+    private List<String> abilities;
 }
