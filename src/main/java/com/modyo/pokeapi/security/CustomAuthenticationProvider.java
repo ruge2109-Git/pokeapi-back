@@ -17,15 +17,15 @@ import org.springframework.stereotype.Component;
  * @author ruge2
  */
 @Component
-public class CustomAuthenticationProvider implements AuthenticationProvider{
+public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String name = authentication.getName();
         String password = authentication.getCredentials().toString();
-        
-        if(name.equals("Modyo") && password.equals("M0DY0T3sT2022!")){
-            return new UsernamePasswordAuthenticationToken(name, password,new ArrayList<>());
+
+        if (name.equals("Modyo") && password.equals("M0DY0T3sT2022!")) {
+            return new UsernamePasswordAuthenticationToken(name, password, new ArrayList<>());
         }
         return null;
     }
@@ -34,5 +34,5 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
     public boolean supports(Class<?> authentication) {
         return authentication.equals(UsernamePasswordAuthenticationToken.class);
     }
-    
+
 }

@@ -5,10 +5,16 @@
  */
 package com.modyo.pokeapi.model.pokeapi;
 
+import java.util.ArrayList;
+import lombok.Data;
+
 /**
  *
  * @author ruge2
  */
-public class GenerationIi {
-    
+@Data
+public class EvolvesTo {
+    private ArrayList<EvolvesTo> evolves_to;
+    private boolean is_baby;
+    private DataInfo species;
 }

@@ -12,7 +12,8 @@ import lombok.Data;
  * @author ruge2
  */
 @Data
-public class OfficialArtwork {
+public class DataInfoTwo {
 
-    private String front_default;
+    private DataInfo pokemon;
+    private int slot;
 }

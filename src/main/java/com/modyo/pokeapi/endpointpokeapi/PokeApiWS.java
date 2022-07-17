@@ -1,8 +1,10 @@
 package com.modyo.pokeapi.endpointpokeapi;
 
 import com.modyo.pokeapi.ConfigProperties;
+import com.modyo.pokeapi.model.pokeapi.DescriptionPokemon;
 import com.modyo.pokeapi.model.pokeapi.DetailPokemon;
 import com.modyo.pokeapi.model.pokeapi.ResultApiPokeApi;
+import com.modyo.pokeapi.model.pokeapi.TypeObject;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
@@ -76,4 +78,71 @@ public class PokeApiWS {
         return detailPokemon;
     }
 
+    @Cacheable("pokemonTypes")
+    public ResultApiPokeApi getTypes() {
+        ResultApiPokeApi resultApi = null;
+        try {
+            String url = this.endPoint + "type";
+
+            HttpEntity<String> entity = new HttpEntity<>(this.httpHeaders);
+
+            ResponseEntity<ResultApiPokeApi> responseApi = this.restTemplate.exchange(url, HttpMethod.GET, entity, ResultApiPokeApi.class);
+            resultApi = responseApi.getBody();
+        }
+        catch (RestClientException e) {
+            throw new RestClientException("Error to consume endpoint type list", e);
+        }
+        return resultApi;
+    }
+
+    @Cacheable("ListPokemonTypes")
+    public TypeObject getListPokemonFromType(String type) {
+        TypeObject resultApi = null;
+        try {
+            String url = this.endPoint + "type/" + type;
+
+            HttpEntity<String> entity = new HttpEntity<>(this.httpHeaders);
+
+            ResponseEntity<TypeObject> responseApi = this.restTemplate.exchange(url, HttpMethod.GET, entity, TypeObject.class);
+            resultApi = responseApi.getBody();
+        }
+        catch (RestClientException e) { 
+            throw new RestClientException("Error to consume endpoint pokemon type list", e);
+        }
+        return resultApi;
+    }
+    
+    @Cacheable("DescriptionPokemon")
+    public DescriptionPokemon getDescriptionPokemon(String pokemon) {
+        DescriptionPokemon resultApi = null;
+        try {
+            String url = this.endPoint + "pokemon-species/" + pokemon;
+
+            HttpEntity<String> entity = new HttpEntity<>(this.httpHeaders);
+
+            ResponseEntity<DescriptionPokemon> responseApi = this.restTemplate.exchange(url, HttpMethod.GET, entity, DescriptionPokemon.class);
+            resultApi = responseApi.getBody();
+        }
+        catch (RestClientException e) { 
+            throw new RestClientException("Error to consume endpoint description pokemon", e);
+        }
+        return resultApi;
+    }
+    
+    @Cacheable("EvolutionPokemon")
+    public DescriptionPokemon getEvolutionsPokemon(String urlEvolution) {
+        DescriptionPokemon resultApi = null;
+        try {
+            String url = urlEvolution;
+
+            HttpEntity<String> entity = new HttpEntity<>(this.httpHeaders);
+
+            ResponseEntity<DescriptionPokemon> responseApi = this.restTemplate.exchange(url, HttpMethod.GET, entity, DescriptionPokemon.class);
+            resultApi = responseApi.getBody();
+        }
+        catch (RestClientException e) { 
+            throw new RestClientException("Error to consume endpoint evolution pokemon", e);
+        }
+        return resultApi;
+    }
 }

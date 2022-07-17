@@ -5,6 +5,7 @@
  */
 package com.modyo.pokeapi.model.pokeapi;
 
+import java.util.ArrayList;
 import lombok.Data;
 
 /**
@@ -12,7 +13,6 @@ import lombok.Data;
  * @author ruge2
  */
 @Data
-public class OfficialArtwork {
-
-    private String front_default;
+class Chain {
+    private ArrayList<EvolvesTo> evolves_to;
 }

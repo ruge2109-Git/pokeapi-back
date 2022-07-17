@@ -14,22 +14,24 @@ import lombok.Data;
  */
 @Data
 public class DetailPokemon {
-    public List<Ability> abilities;
-    public int base_experience;
-    public List<DataInfo> forms;
-    public List<GameIndex> game_indices;
-    public int height;
-    public List<HeldItem> held_items;
-    public int id;
-    public boolean is_default;
-    public String location_area_encounters;
-    public List<Move> moves;
-    public String name;
-    public int order;
-    public List<Object> past_types;
-    public DataInfo species;
-    public Sprites sprites;
-    public List<Stat> stats;
-    public List<Type> types;
-    public int weight;
+
+    private List<Ability> abilities;
+    private int base_experience;
+    private List<DataInfo> forms;
+    private List<GameIndex> game_indices;
+    private int height;
+    private List<HeldItem> held_items;
+    private int id;
+    private boolean is_default;
+    private String location_area_encounters;
+    private List<Move> moves;
+    private String name;
+    private int order;
+    private List<Object> past_types;
+    private DataInfo species;
+    private Sprites sprites;
+    private List<Stat> stats;
+    private List<Type> types;
+    private int weight;
+    private String description;
 }

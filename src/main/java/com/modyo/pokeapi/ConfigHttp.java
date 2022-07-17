@@ -22,5 +22,5 @@ public class ConfigHttp {
     public RestTemplate restTemplate(List<HttpMessageConverter<?>> messageConverters) {
         return new RestTemplate(messageConverters);
     }
-  
+
 }

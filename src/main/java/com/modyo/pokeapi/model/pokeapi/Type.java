@@ -13,6 +13,7 @@ import lombok.Data;
  */
 @Data
 public class Type {
-    public int slot;
-    public DataInfo type;
+
+    private int slot;
+    private DataInfo type;
 }

@@ -14,8 +14,9 @@ import lombok.Data;
  */
 @Data
 public class ResultApiPokeApi {
-    public int count;
-    public String next;
-    public Object previous;
-    public ArrayList<DataInfo> results;
+
+    private int count;
+    private String next;
+    private Object previous;
+    private ArrayList<DataInfo> results;
 }

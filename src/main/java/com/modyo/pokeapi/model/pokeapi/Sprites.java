@@ -13,13 +13,14 @@ import lombok.Data;
  */
 @Data
 public class Sprites {
-    public String back_default;
-    public Object back_female;
-    public String back_shiny;
-    public Object back_shiny_female;
-    public String front_default;
-    public Object front_female;
-    public String front_shiny;
-    public Object front_shiny_female;
-    public Other other;
+
+    private String back_default;
+    private Object back_female;
+    private String back_shiny;
+    private Object back_shiny_female;
+    private String front_default;
+    private Object front_female;
+    private String front_shiny;
+    private Object front_shiny_female;
+    private Other other;
 }

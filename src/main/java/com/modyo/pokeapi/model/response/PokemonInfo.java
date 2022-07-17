@@ -14,6 +14,7 @@ import lombok.Data;
  */
 @Data
 public class PokemonInfo {
+
     private String name;
     private List<String> type;
     private int weight;

@@ -13,7 +13,8 @@ import lombok.Data;
  */
 @Data
 public class Ability {
-    public DataInfo ability;
-    public boolean is_hidden;
-    public int slot;
+
+    private DataInfo ability;
+    private boolean is_hidden;
+    private int slot;
 }

@@ -56,15 +56,15 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
                     .exceptionHandling().authenticationEntryPoint(new BasicAuthenticationEntryPoint() {
                         @Override
                         public void commence(HttpServletRequest request, HttpServletResponse response, org.springframework.security.core.AuthenticationException authException) throws IOException {
-                            if(HttpMethod.OPTIONS.matches(request.getMethod())){
+                            if (HttpMethod.OPTIONS.matches(request.getMethod())) {
                                 response.setStatus(HttpServletResponse.SC_OK);
                                 response.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
                                 response.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_HEADERS, request.getHeader(HttpHeaders.ACCESS_CONTROL_REQUEST_HEADERS));
                                 response.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS, request.getHeader(HttpHeaders.ACCESS_CONTROL_REQUEST_METHOD));
                                 response.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_CREDENTIALS, "true");
                             }
-                            else{
-                                response.sendError(HttpServletResponse.SC_UNAUTHORIZED,authException.getMessage());
+                            else {
+                                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getMessage());
                             }
                         }
                     });
@@ -73,18 +73,18 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
 
         }
     }
-    
+
     @Bean
-    public FilterRegistrationBean<CORSFilter> corsFilterRegistration(){
+    public FilterRegistrationBean<CORSFilter> corsFilterRegistration() {
         FilterRegistrationBean<CORSFilter> registrationBean = new FilterRegistrationBean<>(new CORSFilter());
         registrationBean.setName("CORS Filter");
         registrationBean.addUrlPatterns("/*");
         registrationBean.setOrder(1);
         return registrationBean;
     }
-    
+
     @Bean
-    public HttpFirewall allowUrlEncodedSlashHttpFirewall(){
+    public HttpFirewall allowUrlEncodedSlashHttpFirewall() {
         return new DefaultHttpFirewall();
     }
 }

@@ -35,4 +35,15 @@ public class PokeApiController {
     public ResponseApi getDetailPokemon(@RequestParam(value = "name") String name) {
         return this.apiService.apiDetailPokemon(name);
     }
+
+    @GetMapping("getAllTypes")
+    public ResponseApi getAllTypes() {
+        return this.apiService.apiListType();
+    }
+
+    @GetMapping("getListPokemonFromType")
+    public ResponseApi getListPokemonFromType(@RequestParam(value = "limit") int limit, @RequestParam(value = "offset") int offset, @RequestParam(value = "type") String type) {
+        return this.apiService.apiPokemonFromType(limit, offset, type);
+    }
+
 }

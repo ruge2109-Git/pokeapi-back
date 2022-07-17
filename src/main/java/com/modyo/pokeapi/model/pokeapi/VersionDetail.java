@@ -13,6 +13,7 @@ import lombok.Data;
  */
 @Data
 public class VersionDetail {
-    public int rarity;
-    public DataInfo version;
+
+    private int rarity;
+    private DataInfo version;
 }

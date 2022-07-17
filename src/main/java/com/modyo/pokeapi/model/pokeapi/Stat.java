@@ -14,7 +14,7 @@ import lombok.Data;
 @Data
 public class Stat {
 
-    public int base_stat;
-    public int effort;
-    public DataInfo stat;
+    private int base_stat;
+    private int effort;
+    private DataInfo stat;
 }

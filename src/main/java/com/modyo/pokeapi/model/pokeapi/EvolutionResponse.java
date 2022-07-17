@@ -12,7 +12,8 @@ import lombok.Data;
  * @author ruge2
  */
 @Data
-public class OfficialArtwork {
+public class EvolutionResponse {
 
-    private String front_default;
+    private Chain chain;
+    private int id;
 }

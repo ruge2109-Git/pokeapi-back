@@ -13,6 +13,7 @@ import lombok.Data;
  */
 @Data
 public class GameIndex {
-    public int game_index;
-    public DataInfo version;
+
+    private int game_index;
+    private DataInfo version;
 }

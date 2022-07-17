@@ -13,6 +13,7 @@ import lombok.Data;
  */
 @Data
 public class DataInfo {
-    public String name;
-    public String url;
+
+    private String name;
+    private String url;
 }

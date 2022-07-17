@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ruge2
  */
-public class CORSFilter implements Filter{
+public class CORSFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -38,5 +38,5 @@ public class CORSFilter implements Filter{
     @Override
     public void destroy() {
     }
-    
+
 }

@@ -16,4 +16,8 @@ public interface PokeApiService {
     public ResponseApi apiPokeApi(int limit, int offset);
 
     public ResponseApi apiDetailPokemon(String namePokemon);
+
+    public ResponseApi apiListType();
+
+    public ResponseApi apiPokemonFromType(int limit, int offset,String type);
 }

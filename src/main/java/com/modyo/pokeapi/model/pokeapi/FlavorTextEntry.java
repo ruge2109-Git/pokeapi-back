@@ -12,7 +12,7 @@ import lombok.Data;
  * @author ruge2
  */
 @Data
-public class OfficialArtwork {
+public class FlavorTextEntry {
 
-    private String front_default;
+    private String flavor_text;
 }

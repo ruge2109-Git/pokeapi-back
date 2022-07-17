@@ -14,6 +14,7 @@ import lombok.Data;
  */
 @Data
 public class Move {
-    public DataInfo move;
-    public ArrayList<VersionGroupDetail> version_group_details;
+
+    private DataInfo move;
+    private ArrayList<VersionGroupDetail> version_group_details;
 }

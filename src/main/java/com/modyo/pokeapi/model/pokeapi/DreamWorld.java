@@ -13,6 +13,7 @@ import lombok.Data;
  */
 @Data
 public class DreamWorld {
-    public String front_default;
-    public Object front_female;
+
+    private String front_default;
+    private Object front_female;
 }

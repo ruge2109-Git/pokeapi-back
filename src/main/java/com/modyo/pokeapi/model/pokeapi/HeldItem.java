@@ -14,6 +14,7 @@ import lombok.Data;
  */
 @Data
 public class HeldItem {
-    public DataInfo item;
-    public ArrayList<VersionDetail> version_details;
+
+    private DataInfo item;
+    private ArrayList<VersionDetail> version_details;
 }

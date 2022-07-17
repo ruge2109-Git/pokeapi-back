@@ -14,7 +14,7 @@ import lombok.Data;
 @Data
 public class VersionGroupDetail {
 
-    public int level_learned_at;
-    public DataInfo move_learn_method;
-    public DataInfo version_group;
+    private int level_learned_at;
+    private DataInfo move_learn_method;
+    private DataInfo version_group;
 }

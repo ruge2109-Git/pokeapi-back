@@ -14,7 +14,7 @@ import lombok.Data;
 @Data
 public class Other {
 
-    public DreamWorld dream_world;
-    public Home home;
-    public OfficialArtwork officialArtwork;
+    private DreamWorld dream_world;
+    private Home home;
+    private OfficialArtwork officialArtwork;
 }
