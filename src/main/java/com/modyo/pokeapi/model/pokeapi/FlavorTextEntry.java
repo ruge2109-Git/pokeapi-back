@@ -15,4 +15,5 @@ import lombok.Data;
 public class FlavorTextEntry {
 
     private String flavor_text;
+    private DataInfo language;
 }

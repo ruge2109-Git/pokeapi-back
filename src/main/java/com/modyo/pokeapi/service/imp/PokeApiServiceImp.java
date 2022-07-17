@@ -1,18 +1,21 @@
-package com.modyo.pokeapi.controller.service.imp;
+package com.modyo.pokeapi.service.imp;
 
-import com.modyo.pokeapi.controller.service.PokeApiService;
+import com.modyo.pokeapi.service.PokeApiService;
 import com.modyo.pokeapi.endpointpokeapi.PokeApiWS;
 import com.modyo.pokeapi.model.pokeapi.DataInfo;
 import com.modyo.pokeapi.model.pokeapi.DescriptionPokemon;
 import com.modyo.pokeapi.model.pokeapi.DetailPokemon;
+import com.modyo.pokeapi.model.pokeapi.EvolutionResponse;
+import com.modyo.pokeapi.model.pokeapi.EvolvesTo;
 import com.modyo.pokeapi.model.pokeapi.ResultApiPokeApi;
 import com.modyo.pokeapi.model.pokeapi.TypeObject;
 import com.modyo.pokeapi.model.response.PokemonInfo;
 import com.modyo.pokeapi.model.response.ResponseApi;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -166,10 +169,48 @@ public class PokeApiServiceImp implements PokeApiService {
             if (descPokemon == null) {
                 return detail;
             }
-            detail.setDescription(descPokemon.getFlavor_text_entries().get(0).getFlavor_text());
+
+            String descriptionEnglish = descPokemon.getFlavor_text_entries()
+                    .stream()
+                    .filter(c -> c.getLanguage().getName().equals("en"))
+                    .collect(Collectors.toList()).get(0).getFlavor_text();
+
+            detail.setDescription(descriptionEnglish);
+            detail = this.getEvolutionsPokemon(detail, descPokemon);
         }
         catch (Exception e) {
         }
         return detail;
+    }
+
+    public DetailPokemon getEvolutionsPokemon(DetailPokemon detail, DescriptionPokemon descriptionPokemon) {
+        try {
+            EvolutionResponse descPokemon = apiWS.getEvolutionsPokemon(descriptionPokemon.getEvolution_chain().getUrl());
+            if (descPokemon == null) {
+                return detail;
+            }
+            List<PokemonInfo> evolutions = new ArrayList<>();
+            evolutions.add(this.getBasicInfoPokemon(descPokemon.getChain().getSpecies().getName()));
+            descPokemon.getChain().getEvolves_to().forEach(evolvesTo -> {
+                evolutions.add(this.getBasicInfoPokemon(evolvesTo.getSpecies().getName()));
+                DataInfo evolutionPlus = this.getEvolution(evolvesTo);
+                if (evolutionPlus != null) {
+                    evolutions.add(this.getBasicInfoPokemon(evolutionPlus.getName()));
+                }
+            });
+            detail.setEvolutions(evolutions);
+        }
+        catch (Exception e) {
+        }
+        return detail;
+    }
+
+    public DataInfo getEvolution(EvolvesTo evolves_to) {
+
+        if (evolves_to.getEvolves_to().isEmpty()) {
+            return evolves_to.getSpecies();
+        }
+
+        return getEvolution(evolves_to.getEvolves_to().get(0));
     }
 }

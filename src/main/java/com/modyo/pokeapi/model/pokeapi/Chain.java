@@ -13,6 +13,7 @@ import lombok.Data;
  * @author ruge2
  */
 @Data
-class Chain {
+public class Chain {
     private ArrayList<EvolvesTo> evolves_to;
+    private DataInfo species;
 }

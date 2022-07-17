@@ -5,7 +5,7 @@
  */
 package com.modyo.pokeapi.controller;
 
-import com.modyo.pokeapi.controller.service.PokeApiService;
+import com.modyo.pokeapi.service.PokeApiService;
 import com.modyo.pokeapi.model.response.ResponseApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

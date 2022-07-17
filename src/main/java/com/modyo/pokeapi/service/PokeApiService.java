@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.modyo.pokeapi.controller.service;
+package com.modyo.pokeapi.service;
 
 import com.modyo.pokeapi.model.response.ResponseApi;
 

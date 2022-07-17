@@ -3,6 +3,7 @@ package com.modyo.pokeapi.endpointpokeapi;
 import com.modyo.pokeapi.ConfigProperties;
 import com.modyo.pokeapi.model.pokeapi.DescriptionPokemon;
 import com.modyo.pokeapi.model.pokeapi.DetailPokemon;
+import com.modyo.pokeapi.model.pokeapi.EvolutionResponse;
 import com.modyo.pokeapi.model.pokeapi.ResultApiPokeApi;
 import com.modyo.pokeapi.model.pokeapi.TypeObject;
 import javax.annotation.PostConstruct;
@@ -130,14 +131,14 @@ public class PokeApiWS {
     }
     
     @Cacheable("EvolutionPokemon")
-    public DescriptionPokemon getEvolutionsPokemon(String urlEvolution) {
-        DescriptionPokemon resultApi = null;
+    public EvolutionResponse getEvolutionsPokemon(String urlEvolution) {
+        EvolutionResponse resultApi = null;
         try {
             String url = urlEvolution;
 
             HttpEntity<String> entity = new HttpEntity<>(this.httpHeaders);
 
-            ResponseEntity<DescriptionPokemon> responseApi = this.restTemplate.exchange(url, HttpMethod.GET, entity, DescriptionPokemon.class);
+            ResponseEntity<EvolutionResponse> responseApi = this.restTemplate.exchange(url, HttpMethod.GET, entity, EvolutionResponse.class);
             resultApi = responseApi.getBody();
         }
         catch (RestClientException e) { 
