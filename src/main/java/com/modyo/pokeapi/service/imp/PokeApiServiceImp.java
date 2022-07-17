@@ -12,7 +12,6 @@ import com.modyo.pokeapi.model.pokeapi.TypeObject;
 import com.modyo.pokeapi.model.response.PokemonInfo;
 import com.modyo.pokeapi.model.response.ResponseApi;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;

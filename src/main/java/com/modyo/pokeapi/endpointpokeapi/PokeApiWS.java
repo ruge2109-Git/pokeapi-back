@@ -28,7 +28,7 @@ public class PokeApiWS {
     @Autowired
     private ConfigProperties configProperties;
 
-    @Autowired(required = false)
+    @Autowired
     private RestTemplate restTemplate;
 
     private String endPoint;
@@ -50,14 +50,23 @@ public class PokeApiWS {
         ResultApiPokeApi resultApi = null;
         try {
             String url = this.endPoint + "pokemon?limit=" + limit + "&offset=" + offset;
-
             HttpEntity<String> entity = new HttpEntity<>(this.httpHeaders);
 
+            System.out.println(restTemplate.exchange(url, HttpMethod.GET, entity, ResultApiPokeApi.class));
+            
             ResponseEntity<ResultApiPokeApi> responseApi = this.restTemplate.exchange(url, HttpMethod.GET, entity, ResultApiPokeApi.class);
+            System.out.println(url);
+            System.out.println(responseApi);
+            if (responseApi == null) {
+                return null;
+            }
             resultApi = responseApi.getBody();
         }
         catch (RestClientException e) {
             throw new RestClientException("Error to consume endpoint pokemon list", e);
+        }
+        catch (NullPointerException e) {
+            throw new NullPointerException("Error to consume endpoint pokemon list " + e.getLocalizedMessage());
         }
         return resultApi;
     }
@@ -71,10 +80,16 @@ public class PokeApiWS {
             HttpEntity<String> entity = new HttpEntity<>(this.httpHeaders);
 
             ResponseEntity<DetailPokemon> responseApi = this.restTemplate.exchange(url, HttpMethod.GET, entity, DetailPokemon.class);
+            if (responseApi == null) {
+                return null;
+            }
             detailPokemon = responseApi.getBody();
         }
         catch (RestClientException e) {
             throw new RestClientException("Error to consume endpoint pokemon list", e);
+        }
+        catch (NullPointerException e) {
+            throw new NullPointerException("Error to consume endpoint pokemon list " + e.getLocalizedMessage());
         }
         return detailPokemon;
     }
@@ -88,10 +103,16 @@ public class PokeApiWS {
             HttpEntity<String> entity = new HttpEntity<>(this.httpHeaders);
 
             ResponseEntity<ResultApiPokeApi> responseApi = this.restTemplate.exchange(url, HttpMethod.GET, entity, ResultApiPokeApi.class);
+            if (responseApi == null) {
+                return null;
+            }
             resultApi = responseApi.getBody();
         }
         catch (RestClientException e) {
             throw new RestClientException("Error to consume endpoint type list", e);
+        }
+        catch (NullPointerException e) {
+            throw new NullPointerException("Error to consume endpoint pokemon list " + e.getLocalizedMessage());
         }
         return resultApi;
     }
@@ -105,14 +126,20 @@ public class PokeApiWS {
             HttpEntity<String> entity = new HttpEntity<>(this.httpHeaders);
 
             ResponseEntity<TypeObject> responseApi = this.restTemplate.exchange(url, HttpMethod.GET, entity, TypeObject.class);
+            if (responseApi == null) {
+                return null;
+            }
             resultApi = responseApi.getBody();
         }
-        catch (RestClientException e) { 
+        catch (RestClientException e) {
             throw new RestClientException("Error to consume endpoint pokemon type list", e);
+        }
+        catch (NullPointerException e) {
+            throw new NullPointerException("Error to consume endpoint pokemon list " + e.getLocalizedMessage());
         }
         return resultApi;
     }
-    
+
     @Cacheable("DescriptionPokemon")
     public DescriptionPokemon getDescriptionPokemon(String pokemon) {
         DescriptionPokemon resultApi = null;
@@ -122,14 +149,20 @@ public class PokeApiWS {
             HttpEntity<String> entity = new HttpEntity<>(this.httpHeaders);
 
             ResponseEntity<DescriptionPokemon> responseApi = this.restTemplate.exchange(url, HttpMethod.GET, entity, DescriptionPokemon.class);
+            if (responseApi == null) {
+                return null;
+            }
             resultApi = responseApi.getBody();
         }
-        catch (RestClientException e) { 
+        catch (RestClientException e) {
             throw new RestClientException("Error to consume endpoint description pokemon", e);
+        }
+        catch (NullPointerException e) {
+            throw new NullPointerException("Error to consume endpoint pokemon list " + e.getLocalizedMessage());
         }
         return resultApi;
     }
-    
+
     @Cacheable("EvolutionPokemon")
     public EvolutionResponse getEvolutionsPokemon(String urlEvolution) {
         EvolutionResponse resultApi = null;
@@ -139,11 +172,21 @@ public class PokeApiWS {
             HttpEntity<String> entity = new HttpEntity<>(this.httpHeaders);
 
             ResponseEntity<EvolutionResponse> responseApi = this.restTemplate.exchange(url, HttpMethod.GET, entity, EvolutionResponse.class);
+            if (responseApi == null) {
+                return null;
+            }
             resultApi = responseApi.getBody();
         }
-        catch (RestClientException e) { 
+        catch (RestClientException e) {
             throw new RestClientException("Error to consume endpoint evolution pokemon", e);
         }
+        catch (NullPointerException e) {
+            throw new NullPointerException("Error to consume endpoint pokemon list " + e.getLocalizedMessage());
+        }
         return resultApi;
+    }
+
+    public String test() {
+        return "Hola";
     }
 }
