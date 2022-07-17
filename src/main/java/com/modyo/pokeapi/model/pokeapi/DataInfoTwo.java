@@ -16,4 +16,11 @@ public class DataInfoTwo {
 
     private DataInfo pokemon;
     private int slot;
+
+    public DataInfoTwo() {
+    }
+
+    public DataInfoTwo(DataInfo pokemon) {
+        this.pokemon = pokemon;
+    }
 }

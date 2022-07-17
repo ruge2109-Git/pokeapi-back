@@ -15,4 +15,13 @@ import lombok.Data;
 public class EvolutionChain {
 
     private String url;
+
+    public EvolutionChain() {
+    }
+
+    public EvolutionChain(String url) {
+        this.url = url;
+    }
+    
+    
 }

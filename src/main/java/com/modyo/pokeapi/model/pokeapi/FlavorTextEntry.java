@@ -16,4 +16,12 @@ public class FlavorTextEntry {
 
     private String flavor_text;
     private DataInfo language;
+
+    public FlavorTextEntry() {
+    }
+
+    public FlavorTextEntry(String flavor_text, DataInfo language) {
+        this.flavor_text = flavor_text;
+        this.language = language;
+    }
 }

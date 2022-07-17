@@ -18,14 +18,11 @@ public class DetailPokemon {
 
     private List<Ability> abilities;
     private int base_experience;
-//    private List<DataInfo> forms;
-//    private List<GameIndex> game_indices;
     private int height;
     private List<HeldItem> held_items;
     private int id;
     private boolean is_default;
     private String location_area_encounters;
-//    private List<Move> moves;
     private String name;
     private int order;
     private List<Object> past_types;

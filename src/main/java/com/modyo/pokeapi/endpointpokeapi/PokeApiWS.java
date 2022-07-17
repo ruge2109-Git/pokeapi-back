@@ -51,12 +51,7 @@ public class PokeApiWS {
         try {
             String url = this.endPoint + "pokemon?limit=" + limit + "&offset=" + offset;
             HttpEntity<String> entity = new HttpEntity<>(this.httpHeaders);
-
-            System.out.println(restTemplate.exchange(url, HttpMethod.GET, entity, ResultApiPokeApi.class));
-            
             ResponseEntity<ResultApiPokeApi> responseApi = this.restTemplate.exchange(url, HttpMethod.GET, entity, ResultApiPokeApi.class);
-            System.out.println(url);
-            System.out.println(responseApi);
             if (responseApi == null) {
                 return null;
             }

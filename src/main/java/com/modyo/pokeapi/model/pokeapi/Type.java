@@ -16,4 +16,11 @@ public class Type {
 
     private int slot;
     private DataInfo type;
+
+    public Type() {
+    }
+
+    public Type(DataInfo type) {
+        this.type = type;
+    }
 }

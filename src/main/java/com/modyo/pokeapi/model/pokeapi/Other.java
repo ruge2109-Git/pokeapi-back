@@ -17,4 +17,11 @@ public class Other {
     private DreamWorld dream_world;
     private Home home;
     private OfficialArtwork officialArtwork;
+
+    public Other() {
+    }
+
+    public Other(DreamWorld dream_world) {
+        this.dream_world = dream_world;
+    }
 }

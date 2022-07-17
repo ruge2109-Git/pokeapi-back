@@ -96,6 +96,7 @@ public class PokeApiServiceImp implements PokeApiService {
         try {
             TypeObject apiPokeApi = apiWS.getListPokemonFromType(type);
             if (apiPokeApi == null) {
+                responseApi.setSMsg("List not found");
                 return responseApi;
             }
             responseApi.setBRta(true);
@@ -205,11 +206,9 @@ public class PokeApiServiceImp implements PokeApiService {
     }
 
     public DataInfo getEvolution(EvolvesTo evolves_to) {
-
-        if (evolves_to.getEvolves_to().isEmpty()) {
+        if (evolves_to.getEvolves_to() == null || evolves_to.getEvolves_to().isEmpty()) {
             return evolves_to.getSpecies();
         }
-
         return getEvolution(evolves_to.getEvolves_to().get(0));
     }
 }

@@ -86,7 +86,7 @@ public class PokeApiWSTest {
     }
 
     @Test
-    public void getListPokemonFromTypeIsSuccessful() {
+    public void getListPokemonFromTypeIsSuccessful() { 
         TypeObject pokeMock = mock(TypeObject.class);
         ResponseEntity reMock = mock(ResponseEntity.class);
         when(reMock.getBody()).thenReturn(pokeMock);

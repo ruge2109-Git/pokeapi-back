@@ -16,4 +16,13 @@ public class EvolutionResponse {
 
     private Chain chain;
     private int id;
+
+    public EvolutionResponse() {
+    }
+
+    public EvolutionResponse(Chain chain) {
+        this.chain = chain;
+    }
+    
+    
 }

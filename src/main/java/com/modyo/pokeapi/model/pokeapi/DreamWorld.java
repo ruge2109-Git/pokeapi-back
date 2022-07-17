@@ -16,4 +16,11 @@ public class DreamWorld {
 
     private String front_default;
     private Object front_female;
+
+    public DreamWorld() {
+    }
+
+    public DreamWorld(String front_default) {
+        this.front_default = front_default;
+    }
 }

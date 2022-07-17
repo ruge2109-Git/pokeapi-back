@@ -16,4 +16,14 @@ public class DataInfo {
 
     private String name;
     private String url;
+    
+    public DataInfo(){
+    }
+
+    public DataInfo(String name, String url) {
+        this.name = name;
+        this.url = url;
+    }
+    
+    
 }
