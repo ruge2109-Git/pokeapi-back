@@ -20,3 +20,9 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 ```shell
 mvn spring-boot:run
 ```
+
+
+## Deploy
+This application is deploy in AWS using service Elastic Beanstalk
+
+![image](https://user-images.githubusercontent.com/53587500/179534332-2f799d69-adaa-4be6-87f6-f37f5411772f.png)
