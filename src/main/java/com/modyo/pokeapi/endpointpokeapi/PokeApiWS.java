@@ -180,8 +180,4 @@ public class PokeApiWS {
         }
         return resultApi;
     }
-
-    public String test() {
-        return "Hola";
-    }
 }
